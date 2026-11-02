@@ -1,5 +1,9 @@
 name: image-mirror
 
+permissions:
+  contents: read
+  issues: write
+
 on:
   issues:
     types:
@@ -103,7 +107,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             🚀 开始同步镜像到目标仓库，请稍候...
-            [查看进度](https://github.com/${{ github.repository_owner }}/image-mirror/actions/runs/${{ github.run_id }})
+            [查看进度](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           reactions: rocket
 
       - name: Install Skopeo and jq
